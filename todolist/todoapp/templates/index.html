@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To-Do</title>
+    </head>
+    <body>
+        
+        <div style="display: grid; place-items: center">
+            
+            <header>
+                <h1>>Welcome to my To-Do list!</h1>
+            </header>
+
+            <form action="/create/" method="post">
+                {% csrf_token %}
+                <input type="text" name="title" value="">
+                <input type="submit" value="Add task">
+            </form>
+            <br/>
+            <div style="margin-right:150px">
+                <ul>
+                    {% for task in tasks %}
+                    <li>{{task.title}}</li>
+                    <a href="/editPage/{{task.id}}/">
+                        <button>Edit</button>
+                    </a>
+                    <form action="/delete/{{task.id}}/" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Completed">
+                    </form>
+                    {% endfor %}
+                </ul>
+            </div>
+        
+        </div>
+
+    </body>
+</html>
