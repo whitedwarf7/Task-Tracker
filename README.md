@@ -1,4 +1,5 @@
 # Task-Tracker
+Application created in Django to track the tasks created.
 
 ## Initial Steps
 1. Create a virtual environment
